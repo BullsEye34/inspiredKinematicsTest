@@ -45,7 +45,7 @@ class app extends StatefulWidget {
 class API {
   static Future getUsers() {
     var url =
-        "https://drive.google.com/file/d/1LrOl1HcSmqDhk5nF40KwuO_IwlaJyK2X/view?usp=sharing";
+        "https://raw.githubusercontent.com/BullsEye34/inspiredKinematicsTest/master/assets/product.json";
     print(http.get(url));
     return http.get(url);
   }
