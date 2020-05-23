@@ -1,0 +1,32 @@
+{
+    "SKU": "AT172-103-001",
+    "product_name": "Slope Anti-Theft Backpack,Jet Black",
+    "product_id": "124567890",
+    "description": ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"],
+    "price": 23,
+    "images": ["https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg"],
+    "videos": "",
+    "stock": 3,
+    "status": "Instore",
+    "color": "jet black",
+    "color_map": "black",
+    "size": "Extra small",
+    "size_map": "X-Small",
+    "size_name": "32IN",
+    "related_products": [{
+        "SKU": "AT172-103-002",
+        "product_name": "Slope Anti-Theft Backpack,Jet red",
+        "product_id": "124567890",
+        "images": ["https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg"]
+    }, {
+        "SKU": "AT172-103-003",
+        "product_name": "Slope Anti-Theft Backpack,White",
+        "product_id": "124567892",
+        "images": ["https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg"]
+    }, {
+        "SKU": "AT172-103-004",
+        "product_name": "Slope Anti-Theft Backpack,Red",
+        "product_id": "1245678912",
+        "images": ["https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg", "https:\/\/hips.hearstapps.com\/vader-prod.s3.amazonaws.com\/1566405549-tom-ford-1566405542.jpg"]
+    }]
+}
