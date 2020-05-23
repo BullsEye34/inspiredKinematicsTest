@@ -93,8 +93,37 @@ class _appState extends State<app> {
                   color: Colors.white,
                   height: h / 1.5,
                   child: Center(
-                    child: Text(users[0].product_name.toString().toUpperCase()),
-                  ),
+                      child: ListView.builder(
+                          itemCount: users.length,
+                          itemBuilder: (context, index) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    users[index]
+                                        .product_name
+                                        .toString()
+                                        .toUpperCase(),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 72),
+                                  ),
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    users[index]
+                                        .description[index]
+                                        .toString()
+                                        .toUpperCase(),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 11),
+                                  ),
+                                ),
+                              ],
+                            );
+                          })),
                 ),
               )
             ],
