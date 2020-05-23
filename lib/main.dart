@@ -57,7 +57,7 @@ class _appState extends State<app> {
     API.getUsers().then((response) {
       var o = response;
       print(o.body.toString());
-      o = o.body.toString().substring(3);
+      o = o.body.toString();
       setState(() {
         Iterable list = json.decode(o);
         users = list.map((model) => User.fromJson(model)).toList();
@@ -76,23 +76,29 @@ class _appState extends State<app> {
     var w = MediaQuery.of(context).size.width;
     //print(h);
 
-    return SafeArea(
-      child: Container(
-        color: Color(0x111f1b24), // Kinda grey Color
-        child: Stack(
-          // Thinking of Stacking up image and text and other stuff
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15, // 15 means 45px
-                vertical: 13.333, // 13.333 menas 40px
-              ),
-              child: Container(
-                color: Colors.white,
-                height: h / 1.5,
-              ),
-            )
-          ],
+    return Scaffold(
+      backgroundColor: Color(0x111f1b24),
+      body: SafeArea(
+        child: Container(
+          // Kinda grey Color
+          child: Stack(
+            // Thinking of Stacking up image and text and other stuff
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15, // 15 means 45px
+                  vertical: 13.333, // 13.333 menas 40px
+                ),
+                child: Container(
+                  color: Colors.white,
+                  height: h / 1.5,
+                  child: Center(
+                    child: Text(users[0].product_name.toString().toUpperCase()),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
