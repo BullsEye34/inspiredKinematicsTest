@@ -56,7 +56,7 @@ class _appState extends State<app> {
   _getUsers() {
     API.getUsers().then((response) {
       var o = response;
-      print(o.body.toString());
+      // print(o.body.toString());
       o = o.body.toString();
       setState(() {
         Iterable list = json.decode(o);
@@ -89,42 +89,46 @@ class _appState extends State<app> {
                   horizontal: 15, // 15 means 45px
                   vertical: 13.333, // 13.333 menas 40px
                 ),
-                child: Container(
-                  color: Colors.white,
-                  height: h / 1.5,
-                  child: Center(
-                      child: ListView.builder(
-                          itemCount: users.length,
-                          itemBuilder: (context, index) {
-                            return Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Flexible(
-                                  child: Text(
-                                    users[index]
-                                        .product_name
-                                        .toString()
-                                        .toUpperCase(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 72),
-                                  ),
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    users[index]
-                                        .description[index]
-                                        .toString()
-                                        .toUpperCase(),
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 11),
-                                  ),
-                                ),
-                              ],
-                            );
-                          })),
-                ),
+                child: ListView.builder(
+                    itemCount: users.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              users[index].images[index].toString(),
+                            ),
+                          ),
+                        ),
+                        // color: Colors.white,
+                        height: h / 1.5,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Flexible(
+                              child: Text(
+                                users[index]
+                                    .product_name
+                                    .toString()
+                                    .toUpperCase(),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 72),
+                              ),
+                            ),
+                            Flexible(
+                              child: Text(
+                                users[index]
+                                    .description[index]
+                                    .toString()
+                                    .toUpperCase(),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 11),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
               )
             ],
           ),
