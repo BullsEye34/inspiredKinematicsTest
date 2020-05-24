@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 void main() {
   runApp(
     MaterialApp(
@@ -75,6 +77,7 @@ class _appState extends State<app> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     //print(h);
+    ScreenUtil.init(context);
 
     return Scaffold(
       backgroundColor: Color(0x111f1b24),
@@ -94,6 +97,7 @@ class _appState extends State<app> {
                     itemBuilder: (context, index) {
                       return Container(
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           image: DecorationImage(
                             image: NetworkImage(
                               users[index].images[index].toString(),
@@ -103,6 +107,7 @@ class _appState extends State<app> {
                         // color: Colors.white,
                         height: h / 1.5,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Flexible(
@@ -112,7 +117,10 @@ class _appState extends State<app> {
                                     .toString()
                                     .toUpperCase(),
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 72),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: ScreenUtil()
+                                        .setSp(72), // 72 from design Guidelines
+                                    color: Colors.grey),
                               ),
                             ),
                             Flexible(
