@@ -95,68 +95,72 @@ class _appState extends State<app> {
                 child: ListView.builder(
                     itemCount: users.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              users[index].images[index].toString(),
-                            ),
-                          ),
-                        ),
-                        // color: Colors.white,
-                        height: h / 1.2,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              VerticalDivider(
-                                indent: h / 1.42,
-                                endIndent: 1,
-                                color: Colors.black, // Had to make it black
-                                thickness: 2,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Flexible(
-                                      child: Text(
-                                        users[index]
-                                            .product_name
-                                            .toString()
-                                            .toUpperCase(),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: ScreenUtil().setSp(
-                                              72), // 72 from design Guidelines
-                                          color: Colors
-                                              .grey, // Had to make it Grey from White
-                                        ),
-                                      ),
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        users[index]
-                                            .description[index]
-                                            .toString()
-                                            .toUpperCase(),
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: ScreenUtil().setSp(30),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                      return Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  users[index].images[index].toString(),
                                 ),
                               ),
-                            ],
+                            ),
+                            // color: Colors.white,
+                            height: h / 1.2,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  VerticalDivider(
+                                    indent: h / 1.42,
+                                    endIndent: 1,
+                                    color: Colors.black, // Had to make it black
+                                    thickness: 2,
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Flexible(
+                                          child: Text(
+                                            users[index]
+                                                .product_name
+                                                .toString()
+                                                .toUpperCase(),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: ScreenUtil().setSp(
+                                                  72), // 72 from design Guidelines
+                                              color: Colors
+                                                  .grey, // Had to make it Grey from White
+                                            ),
+                                          ),
+                                        ),
+                                        Flexible(
+                                          child: Text(
+                                            users[index]
+                                                .description[index]
+                                                .toString()
+                                                .toUpperCase(),
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: ScreenUtil().setSp(30),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       );
                     }),
               )
