@@ -14,18 +14,19 @@ void main() {
   );
 }
 
-class User {
+// Create a new Class for assigning the vars to the JSON Decode
+class Item {
   var product_name;
   var description;
   var images;
 
-  User(var product_name, var description, var images) {
+  Item(var product_name, var description, var images) {
     this.product_name = product_name;
     this.description = description;
     this.images = images;
   }
 
-  User.fromJson(Map json)
+  Item.fromJson(Map json)
       : product_name = json['product_name'],
         description = json['description'],
         images = json['images'];
@@ -44,25 +45,25 @@ class app extends StatefulWidget {
   _appState createState() => _appState();
 }
 
+// Fetch the data in the URl as a JSON
 class API {
   static Future getUsers() {
     var url =
-        "https://raw.githubusercontent.com/BullsEye34/inspiredKinematicsTest/master/assets/product.json";
+        "https://raw.githubusercontent.com/BullsEye34/inspiredKinematicsTest/master/assets/product.json"; // Had to Use Raw OF JSON from Github Repo.
     print(http.get(url));
     return http.get(url);
   }
 }
 
 class _appState extends State<app> {
-  var users = new List<User>();
+  var items = new List<Item>();
   _getUsers() {
     API.getUsers().then((response) {
       var o = response;
-      // print(o.body.toString());
       o = o.body.toString();
       setState(() {
         Iterable list = json.decode(o);
-        users = list.map((model) => User.fromJson(model)).toList();
+        items = list.map((model) => Item.fromJson(model)).toList();
       });
     });
   }
@@ -76,7 +77,6 @@ class _appState extends State<app> {
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
-    //print(h);
     ScreenUtil.init(context);
 
     return Scaffold(
@@ -93,7 +93,8 @@ class _appState extends State<app> {
                   vertical: 13.333, // 13.333 menas 40px
                 ),
                 child: ListView.builder(
-                    itemCount: users.length,
+                    // Can use a StreamBuilder too
+                    itemCount: items.length,
                     itemBuilder: (context, index) {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,17 +104,17 @@ class _appState extends State<app> {
                               color: Colors.white,
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  users[index].images[index].toString(),
+                                  items[index].images[index].toString(),
                                 ),
                               ),
                             ),
-                            // color: Colors.white,
                             height: h / 1.2,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
+                                  // That White Line
                                   VerticalDivider(
                                     indent: h / 1.42,
                                     endIndent: 1,
@@ -125,9 +126,10 @@ class _appState extends State<app> {
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
+                                        // Title Text
                                         Flexible(
                                           child: Text(
-                                            users[index]
+                                            items[index]
                                                 .product_name
                                                 .toString()
                                                 .toUpperCase(),
@@ -142,9 +144,10 @@ class _appState extends State<app> {
                                             ),
                                           ),
                                         ),
+                                        // Description text
                                         Flexible(
                                           child: Text(
-                                            users[index]
+                                            items[index]
                                                 .description[index]
                                                 .toString()
                                                 .toUpperCase(),
@@ -165,6 +168,7 @@ class _appState extends State<app> {
                       );
                     }),
               ),
+              // Usually, I think that the logos would be on the images itself.
               Positioned(
                 top: h / 80,
                 left: w / 1.5,
@@ -179,7 +183,6 @@ class _appState extends State<app> {
                 child: Image.asset(
                   'assets/MOB_ Aneclogo.png',
                   height: 50,
-                  // color: Colors.black,
                 ),
               ),
             ],
