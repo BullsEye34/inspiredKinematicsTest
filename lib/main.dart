@@ -130,7 +130,9 @@ class _appState extends State<app> {
                                     .toString()
                                     .toUpperCase(),
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 11),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(30),
+                                ),
                               ),
                             ),
                           ],
