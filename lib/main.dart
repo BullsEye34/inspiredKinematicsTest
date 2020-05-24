@@ -96,6 +96,7 @@ class _appState extends State<app> {
                     itemCount: users.length,
                     itemBuilder: (context, index) {
                       return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             decoration: BoxDecoration(
@@ -163,7 +164,24 @@ class _appState extends State<app> {
                         ],
                       );
                     }),
-              )
+              ),
+              Positioned(
+                top: h / 80,
+                left: w / 1.5,
+                child: Image.asset(
+                  'assets/MOB_ VAPHlogo.png',
+                  height: 50,
+                  color: Colors.black,
+                ),
+              ),
+              Positioned(
+                bottom: h / 17,
+                child: Image.asset(
+                  'assets/MOB_ Aneclogo.png',
+                  height: 50,
+                  // color: Colors.black,
+                ),
+              ),
             ],
           ),
         ),
