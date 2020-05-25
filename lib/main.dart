@@ -171,7 +171,7 @@ class _appState extends State<app> {
               // Usually, I think that the logos would be on the images itself.
               Positioned(
                 top: h / 80,
-                left: w / 1.5,
+                left: w / 1.7,
                 child: Image.asset(
                   'assets/MOB_ VAPHlogo.png',
                   height: 50,
